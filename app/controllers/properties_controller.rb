@@ -1,7 +1,8 @@
 class PropertiesController < ApplicationController
-
+  before_action :find_property, except: [:index, :create]
+  # Only authorized users have access to this model controllers
   def index
-    render json: Property.all, status: :ok
+    render json: Property.where("user_id = ?", current_user.id), status: :ok
   end
 
   def show
@@ -25,10 +26,11 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.permit(:address, :user_id)
+    params.permit(:name, :address, :image, :user_id)
   end
 
   def find_property
     @property = Property.find(params[:id])
   end
+
 end

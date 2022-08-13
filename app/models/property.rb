@@ -1,8 +1,8 @@
 class Property < ApplicationRecord
-  has_many :preventatice_maintances
+  has_many :preventative_maintenances
   has_many :inspections, through: :user
 
-  has_one :checklist
+  # has_one :project
   belongs_to :user
 
 end
