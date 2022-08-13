@@ -1,3 +1,4 @@
 class PropertySerializer < ActiveModel::Serializer
-  attributes :id, :address, :belongs_to
+  attributes :id, :name, :address, :image
+  # has_one :user
 end
