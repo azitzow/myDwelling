@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   resources :properties
-  resources :users
+  resources :users, except: [:show, :create]
 
+  # User Routes
   get '/authorized_user', to: 'users#show'
   post '/signup', to: "users#create"
+
+  # Sessions Routes
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#delete'
 

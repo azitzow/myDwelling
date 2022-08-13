@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :find_user, except: [:show, :create]
   skip_before_action :authorized_user, only: [:show, :create]
 
   def show
@@ -18,12 +19,17 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    head :no_content
   end
 
   private
 
   def user_params
     params.permit(:username, :email, :password, :phone_number)
+  end
+
+  def find_user
+    @user = User.find(params[:id])
   end
 
 end
