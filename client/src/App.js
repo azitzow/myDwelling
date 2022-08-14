@@ -5,6 +5,9 @@ import { NavBar } from "./components/NavBar";
 import { Sidebar } from "./components/Sidebar";
 import { Home } from "./components/Home";
 import { SignupForm } from "./components/SignupForm";
+import { PropertiesPage } from "./components/PropertiesPage";
+import { PropertyForm } from "./components/PropertyForm";
+import { PropertyPage } from "./components/PropertyPage";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -37,6 +40,10 @@ export const App = () => {
           <Route exact path="/signup" element={ <SignupForm />}/>
           <Route exact path="/login" element={ <LoginForm setCurrentUser={ setCurrentUser }/> }/>
           <Route exact path="/calendar" element={ <Schedule /> } />
+          <Route exact path="/createDwelling" element={ <PropertyForm /> } />
+          <Route exact path="/myDwellings" element={ <PropertiesPage />} />
+          <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
+
         </Routes>
     </div>
   );
