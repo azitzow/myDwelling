@@ -36,6 +36,22 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
           </NavLink>
         }
 
+        { currentUser ?
+          <NavLink to='/createDwelling'>
+            <p><span>Create A Dwelling</span></p>
+          </NavLink>
+          :
+          null
+        }
+
+        { currentUser ?
+          <NavLink to='/myDwellings'>
+            <p><span>My Dwelling List</span></p>
+          </NavLink>
+          :
+          null
+        }
+
       </nav>
     </div>
   );

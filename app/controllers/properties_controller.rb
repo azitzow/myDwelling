@@ -1,6 +1,6 @@
 class PropertiesController < ApplicationController
   before_action :find_property, except: [:index, :create]
-  # Only authorized users have access to this model controllers
+
   def index
     render json: Property.where("user_id = ?", current_user.id), status: :ok
   end
@@ -10,7 +10,7 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    property = Property.create!(property_params)
+    property = Property.create!(params_with_current_user_id)
     render json: property, status: :created
   end
 
@@ -26,7 +26,11 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.permit(:name, :address, :image, :user_id)
+    params.permit(:name, :address, :image)
+  end
+
+  def params_with_current_user_id
+    property_params.merge(user_id: current_user.id)
   end
 
   def find_property
