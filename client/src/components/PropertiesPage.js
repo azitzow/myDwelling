@@ -10,9 +10,15 @@ export const PropertiesPage = () => {
     .then((data) => setMyProperties(data))
   }, []);
 
+  const onDelete = (id) => {
+    const updatedPropertyList = myProperties.filter((property) => property.id !== id);
+    setMyProperties(updatedPropertyList)
+  };
+
   const property = myProperties.map( (property) => {
-    return <PropertyCard key={ property.id } property={ property }/>
+    return <PropertyCard key={ property.id } property={ property } onDelete={ onDelete }/>
   });
+
 
   return (
     <div>
