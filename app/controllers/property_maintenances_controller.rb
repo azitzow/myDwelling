@@ -1,0 +1,2 @@
+class PropertyMaintenancesController < ApplicationController
+end

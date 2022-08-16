@@ -8,6 +8,7 @@ import { SignupForm } from "./components/SignupForm";
 import { PropertiesPage } from "./components/PropertiesPage";
 import { PropertyForm } from "./components/PropertyForm";
 import { PropertyPage } from "./components/PropertyPage";
+import { MaintenancePage } from "./components/MaintenancePage.js";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -43,7 +44,7 @@ export const App = () => {
           <Route exact path="/createDwelling" element={ <PropertyForm /> } />
           <Route exact path="/myDwellings" element={ <PropertiesPage />} />
           <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
-
+          <Route exact path="/maintenancePage" element={ <MaintenancePage currentUser={ currentUser } />} />
         </Routes>
     </div>
   );

@@ -7,6 +7,9 @@ export const PropertyCard = ({ property, onDelete }) => {
   const handleClick = () => {
     navigate(`/propertyPage/${id}`);
   };
+  const handleOnClick = () => {
+    navigate('/maintenancePage');
+  };
 
   const handleDelete = () => {
     fetch(`/properties/${id}`, {
@@ -24,6 +27,7 @@ export const PropertyCard = ({ property, onDelete }) => {
       <p>
         <button onClick={ handleClick }>View/Edit Dwelling</button>
         <button onClick={ handleDelete }>Delete Dwelling</button>
+        <button onClick={ handleOnClick }>View My Maintenance List</button>
       </p>
 
     </div>

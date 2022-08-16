@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :property_maintenances
+  resources :maintenances
   resources :properties
   resources :users, except: [:show, :create]
 

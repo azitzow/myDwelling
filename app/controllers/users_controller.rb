@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    head :no_content
   end
 
   private

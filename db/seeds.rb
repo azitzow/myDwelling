@@ -1,11 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts '🌱  Seeding maintenances'
 
-# Sample Property
-meeks = Property.create(name: "Meeks Property", address: "123 Meeks Way Sacramento, CA 95834", image: "https://foyr.com/learn/wp-content/uploads/2021/08/design-your-dream-home.jpg" user_id: user);
+clean = Maintenance.create(name: 'Move-In', description: 'Deep clean your home', category: 'Recommended')
 
+filters = Maintenance.create(name: 'Move-In', description: "Replace your home's filters", category: 'Required')
+
+controls = Maintenance.create(name: 'Move-In', description: 'Find your water and electric controls', category: 'Required')
+
+devices = Maintenance.create(name: 'Move-In', description: 'Check your safety devices', category: 'Required')
+
+hvac = Maintenance.create(name: 'Monthly Maintenance Checklist', description: 'Check your HVAC filters', category: 'Recommended')
+
+heater = Maintenance.create(name: 'Monthly Maintenance Checklist', description: 'Check your water heater, and flush out hot water from the water heater to remove accumulated sediment', category: 'Recommended')
+
+puts '🌱 Done Seeding'
