@@ -11,6 +11,7 @@ class PropertiesController < ApplicationController
 
   def create
     property = Property.create!(params_with_current_user_id)
+    property.maintenances = Maintenance.all
     render json: property, status: :created
   end
 
@@ -21,6 +22,12 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property.destroy
+  end
+
+  def maintenance
+    property_id = params[:id]
+    property = Property.find(property_id)
+    render json: property.maintenances, status: :ok
   end
 
   private

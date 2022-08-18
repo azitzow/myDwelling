@@ -60,6 +60,14 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
           null
         }
 
+        { currentUser ?
+          <NavLink to='/createMaintenance'>
+            <p><span>Create a Maintenance</span></p>
+          </NavLink>
+          :
+          null
+        }
+
       </nav>
     </div>
   );

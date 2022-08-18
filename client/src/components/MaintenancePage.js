@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react';
 import { MaintenanceCard } from './MaintenanceCard';
+import { useParams } from 'react-router-dom';
 
 export const MaintenancePage = ( { currentUser }) => {
   const [ myMaintenance, setMyMaintenance ] = useState([])
+  const { propertyId } = useParams();
 
   useEffect(() => {
-    fetch('/maintenances')
-    .then((res) => res.json())
-    .then((data) => setMyMaintenance(data))
-  }, [currentUser]);
+    if (propertyId !== undefined) {
+      fetch(`/properties/${propertyId}/maintenance`)
+        .then((res) => res.json())
+        .then((data) => setMyMaintenance(data))
+    }
+  }, [propertyId]);
 
   const onDelete = (id) => {
     const updatedMaintenanceList = myMaintenance.filter((maintenance) => maintenance.id !== id);
@@ -19,10 +23,9 @@ export const MaintenancePage = ( { currentUser }) => {
     return <MaintenanceCard key={maintenance.id} maintenance={ maintenance } onDelete={ onDelete }/>
   });
 
-
   return (
     <div>
-      <h1>Recommended, required or custom maintenances for your Dwelling</h1>
+      <h1>List of Maintenances</h1>
       { maintenance }
     </div>
   )

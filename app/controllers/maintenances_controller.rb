@@ -32,9 +32,4 @@ class MaintenancesController < ApplicationController
   def maintenance_params
     params.permit(:name, :description, :category)
   end
-
-  # def maintenance_with_user_id
-  #   maintenance_params.merge(user_id: current_user.id)
-  # end
-
 end

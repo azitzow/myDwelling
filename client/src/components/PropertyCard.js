@@ -8,7 +8,7 @@ export const PropertyCard = ({ property, onDelete }) => {
     navigate(`/propertyPage/${id}`);
   };
   const handleOnClick = () => {
-    navigate('/maintenancePage');
+    navigate(`/maintenancePage/${id}`);
   };
 
   const handleDelete = () => {
