@@ -2,11 +2,15 @@ class PropertiesController < ApplicationController
   before_action :find_property, except: [:index, :create]
 
   def index
-    render json: Property.where("user_id = ?", current_user.id), status: :ok
+    render json: Property.where(user_id: current_user.id), status: :ok
   end
 
   def show
-    render json:@property, status: :ok
+    if @property.user_id == current_user.id
+      render json:@property, status: :ok
+    else
+      render json: { error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   def create
@@ -16,12 +20,21 @@ class PropertiesController < ApplicationController
   end
 
   def update
-    @property.update!(property_params)
-    render json:@property, status: :ok
+    if @property.user_id == current_user.id
+      @property.update!(property_params)
+      render json:@property, status: :ok
+    else
+      render json: { error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   def destroy
     @property.destroy
+    if @property.user_id == current_user.id
+      @property.destroy
+    else
+      render json: { error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   def maintenance
