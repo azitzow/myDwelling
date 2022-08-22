@@ -2,7 +2,7 @@ class MaintenancesController < ApplicationController
   before_action :find_maintenance, except: [:index, :create]
 
   def index
-    render json: Maintenance.all, status: :ok
+    render json: Maintenance.where(user_id: nil).or(Maintenance.where(user_id: current_user.id)) , status: :ok
   end
 
   def show
@@ -10,16 +10,6 @@ class MaintenancesController < ApplicationController
   end
 
   def create
-    # Create new Maintenance with params
-    # Associate the user: maintenance.user_id = session[:user_id]
-    # Associate it to a property:
-    # - Include the property id in your params
-    # - Use active record to find the property by ID
-    # - Associate the new mainteance item to the property
-    #     property.maintenances << maintenance
-    # - Save all the things
-    #     maintenance.save
-    #     property.save
     maintenance = Maintenance.create!(params_with_current_user_id)
     find_property.maintenances << maintenance
     @property.save
