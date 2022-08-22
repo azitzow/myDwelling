@@ -1,3 +1,3 @@
 class MaintenanceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :category
+  attributes :id, :name
 end

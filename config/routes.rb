@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :maintenances
   resources :properties
   resources :users, except: [:show, :create]
+  resources :categories, only: [:index, :show]
 
   # User Routes
   get '/authorized_user', to: 'users#show'

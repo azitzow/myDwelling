@@ -10,7 +10,19 @@ class MaintenancesController < ApplicationController
   end
 
   def create
-    maintenance = Maintenance.create!(maintenance_params)
+    # Create new Maintenance with params
+    # Associate the user: maintenance.user_id = session[:user_id]
+    # Associate it to a property:
+    # - Include the property id in your params
+    # - Use active record to find the property by ID
+    # - Associate the new mainteance item to the property
+    #     property.maintenances << maintenance
+    # - Save all the things
+    #     maintenance.save
+    #     property.save
+    maintenance = Maintenance.create!(params_with_current_user_id)
+    find_property.maintenances << maintenance
+    @property.save
     render json: maintenance, status: :created
   end
 
@@ -25,11 +37,19 @@ class MaintenancesController < ApplicationController
 
   private
 
+  def find_property
+    @property = Property.find(params[:property_id])
+  end
+
   def find_maintenance
     @maintenance = Maintenance.find(params[:id])
   end
 
   def maintenance_params
-    params.permit(:name, :description, :category)
+    params.permit(:name, :category_id)
+  end
+
+  def params_with_current_user_id
+    maintenance_params.merge(user_id: session[:user_id])
   end
 end
