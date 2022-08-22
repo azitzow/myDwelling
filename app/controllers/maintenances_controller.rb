@@ -6,7 +6,11 @@ class MaintenancesController < ApplicationController
   end
 
   def show
-    render json: @maintenance, status: :ok
+    if @maintenance.user_id == current_user.id
+      render json: @maintenance, status: :ok
+    else
+      render json: {error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   def create
@@ -17,12 +21,20 @@ class MaintenancesController < ApplicationController
   end
 
   def update
-    @maintenance.update!(maintenance_params)
-    render json: @maintenance, status: :ok
+    if @maintenance.user_id == current_user.id
+      @maintenance.update!(maintenance_params)
+      render json: @maintenance, status: :ok
+    else
+      render json: {error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   def destroy
-    @maintenance.destroy
+    if @maintenance.user_id == current_user.id
+      @maintenance.destroy
+    else
+      render json: {error: 'Unauthorized'}, status: :unauthorized
+    end
   end
 
   private
