@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2022_08_18_183242) do
   create_table "property_maintenances", force: :cascade do |t|
     t.bigint "maintenance_id", null: false
     t.bigint "property_id", null: false
+    t.boolean "completed"
+    t.date "date"
+    t.decimal "cost"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["maintenance_id"], name: "index_property_maintenances_on_maintenance_id"

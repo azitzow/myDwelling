@@ -2,7 +2,7 @@ class MaintenancesController < ApplicationController
   before_action :find_maintenance, except: [:index, :create]
 
   def index
-    render json: Maintenance.where(user_id: nil).or(Maintenance.where(user_id: current_user.id)) , status: :ok
+    render json: Maintenance.where(user_id: nil).or(Maintenance.where(user_id: current_user.id)), status: :ok
   end
 
   def show

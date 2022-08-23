@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :properties
+  has_many :maintenances
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true

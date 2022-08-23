@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Schedule } from "./components/Schedule";
 import { LoginForm } from "./components/LoginForm";
-import { NavBar } from "./components/NavBar";
+// import { NavBar } from "./components/NavBar";
 import { Sidebar } from "./components/Sidebar";
 import { Home } from "./components/Home";
 import { SignupForm } from "./components/SignupForm";
@@ -15,6 +15,7 @@ import "./App.css";
 
 export const App = () => {
   const [ currentUser, setCurrentUser ] = useState(false);
+  const [ categories, setCategories ] = useState([]);
 
   useEffect(() => {
     fetch('/authorized_user')
@@ -33,21 +34,30 @@ export const App = () => {
     });
   }, []);
 
+  useEffect (() => {
+    fetch('/categories')
+    .then( (res) => res.json())
+    .then((category) => {
+      setCategories(category);
+    })
+  }, [])
+
   return (
     <div className="App">
-      <NavBar currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
       <Sidebar currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
         <Routes>
-          <Route exact path="/" element={<Home />}/>
+          <Route exact path="/home" element={<Home categories={ categories }/>}/>
           <Route exact path="/signup" element={ <SignupForm />}/>
           <Route exact path="/login" element={ <LoginForm setCurrentUser={ setCurrentUser }/> }/>
           <Route exact path="/calendar" element={ <Schedule /> } />
           <Route exact path="/createDwelling" element={ <PropertyForm /> } />
           <Route exact path="/myDwellings" element={ <PropertiesPage />} />
           <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
-          <Route exact path="/maintenancePage/:propertyId" element={ <MaintenancePage currentUser={ currentUser } />} />
-          <Route exact path="/createMaintenance" element={ <MaintenanceForm />} />
+          <Route exact path="/maintenancePage/:propertyId" element={ <MaintenancePage currentUser={ currentUser} categories={categories} />} />
+          <Route exact path="/createMaintenance" element={ <MaintenanceForm categories={ categories } />} />
         </Routes>
     </div>
   );
 };
+
+// <NavBar currentUser={ currentUser } setCurrentUser={ setCurrentUser } />

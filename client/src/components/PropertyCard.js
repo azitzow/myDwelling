@@ -29,6 +29,8 @@ export const PropertyCard = ({ property, onDelete }) => {
         <button onClick={ handleDelete }>Delete Dwelling</button>
         <button onClick={ handleOnClick }>View My Maintenance List</button>
       </p>
+      <p>Estimated Maintenance Costs: $900,000 @ToDo</p>
+      <p>Completed Maintenance Total: $55 @ToDo</p>
 
     </div>
   )

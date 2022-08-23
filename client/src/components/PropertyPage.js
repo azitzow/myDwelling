@@ -11,7 +11,7 @@ export const PropertyPage = ( ) => {
   const navigate =useNavigate();
   useEffect( () => {
     fetch(`/properties/${id}`)
-    .then( (res) => res.json())
+    .then((res) => res.json())
     .then((data) => {
       setFormData(data)
     })
@@ -35,7 +35,7 @@ export const PropertyPage = ( ) => {
           navigate('/myDwellings')
         })
       } else {
-        res.json().then( (json) => alert(json.errors));
+        res.json().then((json) => alert(json.errors));
       }
     });
   };
@@ -47,8 +47,9 @@ export const PropertyPage = ( ) => {
   };
 
   return (
-    <div>
-      <h2>Edit desired fields</h2>
+    <div className='property-page-container'>
+      <h2>EDIT ALL DESIRED FIELDS</h2>
+      <img src={image} alt='a house'/>
       <form className='propertyPage-form' onSubmit={ handleSubmit } >
         <label>Name</label>
         <input

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :find_user, except: [:show, :create]
-  skip_before_action :authorized_user, only: [:show, :create]
+  skip_before_action :authorized_user, only: :create
 
   def show
     render json: current_user, status: :ok
@@ -19,6 +19,10 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+  end
+
+  def user_maintenance
+    current_user.maintenances
   end
 
   private

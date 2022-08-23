@@ -1,4 +1,6 @@
 import { NavLink, useNavigate } from "react-router-dom";
+import Logo from '../images/brick logo.webp';
+
 
 export const Sidebar = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
@@ -16,8 +18,9 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
 
   return (
     <div className="sidebar-container">
-      <h1 className="logo">MyDwelling</h1>
       <nav className="nav-bar-menu">
+        <NavLink to="/home"><span><h1 className="logo">{<img src={Logo} alt={Logo} width='75' height='75' />}MyDwelling</h1></span></NavLink>
+
         { currentUser ? <span>{ "WELCOME " + currentUser.username.toUpperCase() }</span> : null}
 
         { currentUser ?
@@ -53,8 +56,8 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
         }
 
         { currentUser ?
-          <NavLink to='/maintenancePage'>
-            <p><span>Maintenance Page</span></p>
+          <NavLink to='/calendar'>
+            <p><span>Schedule</span></p>
           </NavLink>
           :
           null
