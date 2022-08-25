@@ -47,10 +47,10 @@ export const PropertyPage = ( ) => {
   };
 
   return (
-    <div className='property-page-container'>
+    <div className='content-container'>
       <h2>EDIT ALL DESIRED FIELDS</h2>
       <img src={image} alt='a house'/>
-      <form className='propertyPage-form' onSubmit={ handleSubmit } >
+      <form className='form-container' onSubmit={ handleSubmit } >
         <label>Name</label>
         <input
         type='text'

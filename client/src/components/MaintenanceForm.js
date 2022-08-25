@@ -1,17 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { select } from "react-select";
 
-export const MaintenanceForm = ({ categories, myProperties }) => {
+export const MaintenanceForm = ({ categories }) => {
   const [formData, setFormData] = useState({
     name: "",
     category_id: "",
     estimated_cost: "",
     property_id: "",
   });
+  const [ myProperties, setMyProperties ] = useState([]);
+
 
   const { name, category_id, property_id, estimated_cost } = formData;
   const navigate = useNavigate();
+
+  useEffect( () => {
+    fetch('/properties')
+    .then( (res) => res.json())
+    .then((data) => setMyProperties(data))
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,8 +51,8 @@ export const MaintenanceForm = ({ categories, myProperties }) => {
   };
 
   return (
-    <div className="maintenance-form-container">
-      <form className="form" onSubmit={handleSubmit}>
+    <div className="content-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <h1>Create Custom Maintenance</h1>
 
         <label>Maintenance</label>

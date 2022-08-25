@@ -19,28 +19,63 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
   return (
     <div className="sidebar-container">
       <nav className="nav-bar-menu">
-        <NavLink to="/"><span><h1 className="logo">{<img src={Logo} alt={Logo} width='75' height='75' />}MyDwelling</h1></span></NavLink>
+        <NavLink  style={({ isActive }) =>
+        isActive
+          ? {
+              color: '#5085A5',
+              background: '#7600dc',
+            }
+          : { color: '#545e6f', background: '#f0f0f0' }
+      } to="/"><span><h1 className="logo">{<img src={Logo} alt={Logo} width='75' height='75' />}MyDwelling</h1></span></NavLink>
 
         { currentUser ? <span>{ "WELCOME " + currentUser.username.toUpperCase() }</span> : null}
 
         { currentUser ?
-          <NavLink to="/logout" onClick={ handleLogout }>
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to="/logout" onClick={ handleLogout }>
           <p><span>Logout</span></p>
           </NavLink>
           :
-          <NavLink to="/login">
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to="/login">
           <p><span>Login</span></p>
           </NavLink>
         }
 
         { currentUser ? null :
-          <NavLink to='/signup'>
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to='/signup'>
             <p><span>Signup</span></p>
           </NavLink>
         }
 
         { currentUser ?
-          <NavLink to='/createDwelling'>
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to='/createDwelling'>
             <p><span>Create A Dwelling</span></p>
           </NavLink>
           :
@@ -48,7 +83,14 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
         }
 
         { currentUser ?
-          <NavLink to='/myDwellings'>
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to='/myDwellings'>
             <p><span>My Dwelling List</span></p>
           </NavLink>
           :
@@ -56,7 +98,14 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
         }
 
         { currentUser ?
-          <NavLink to='/calendar'>
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to='/calendar'>
             <p><span>Schedule</span></p>
           </NavLink>
           :
@@ -64,7 +113,14 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
         }
 
         { currentUser ?
-          <NavLink to='/createMaintenance'>
+          <NavLink style={({ isActive }) =>
+          isActive
+            ? {
+                color: '#5085A5',
+                background: '#7600dc',
+              }
+            : { color: '#545e6f', background: '#f0f0f0' }
+        } to='/createMaintenance'>
             <p><span>Create a Maintenance</span></p>
           </NavLink>
           :

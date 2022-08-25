@@ -38,8 +38,8 @@ export const PropertyForm = () => {
   }
 
   return (
-    <div>
-      <form className='property-form-container' onSubmit={ handleSubmit }>
+    <div className='content-container'>
+      <form className='form-container' onSubmit={ handleSubmit }>
         <h1>Create a new Dwelling</h1>
 
         <label className='label'>Name</label>

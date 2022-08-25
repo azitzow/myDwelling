@@ -40,8 +40,8 @@ export const LoginForm = ( { setCurrentUser } ) => {
   };
 
   return (
-    <div>
-    <form className='login-container' onSubmit={ handleSubmit }>
+    <div className='content-container'>
+    <form className='form-container' onSubmit={ handleSubmit }>
       <h1>LOGIN</h1>
       <h2>Please enter your username and password to continue!</h2>
 
@@ -62,7 +62,7 @@ export const LoginForm = ( { setCurrentUser } ) => {
           name='password'
           value={ password }
         ></input>
-        <button className='login-button' type='submit'>Login</button>
+        <button type='submit'>Login</button>
       </form>
     </div>
   )

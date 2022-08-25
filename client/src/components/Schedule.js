@@ -49,10 +49,10 @@ export const Schedule = () => {
   };
 
   return (
-    <div className="schedule-container">
+    <div className="content-container">
       <h1>Calendar</h1>
       <h2>Add New Event</h2>
-      <div className="calendar">
+      <div className="calendar-container">
         <input
           type="text"
           placeholder="Add Title"
@@ -71,7 +71,7 @@ export const Schedule = () => {
           selected={newEvent.end}
           onChange={(end) => setNewEvent({ ...newEvent, end })}
         />
-        <button stlye={{ marginTop: "10px" }} onClick={handleAddEvent}>
+        <button style={{ marginTop: "10px" }} onClick={handleAddEvent}>
           Add Event
         </button>
       </div>

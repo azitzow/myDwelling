@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const PropertyCard = ({ property, onDelete }) => {
@@ -30,7 +30,8 @@ export const PropertyCard = ({ property, onDelete }) => {
     })
   }, [id])
 
-  const sum = (previousValue, currentValue) => previousValue + currentValue;
+
+  const sum = useCallback((previousValue, currentValue) => previousValue + currentValue, []);
   const zero = 0;
 
   // ADD all the estimated costs and display on card
@@ -53,15 +54,15 @@ export const PropertyCard = ({ property, onDelete }) => {
   );
 
   return (
-    <div className='property-card-container'>
+    <div>
       <h2>{ name }</h2>
       <p>{ address }</p>
       <img src={image} alt={name} width='500' height='400' />
-      <p>
+      <div className='button-row'>
         <button onClick={ handleClick }>View/Edit Dwelling</button>
         <button onClick={ handleDelete }>Delete Dwelling</button>
         <button onClick={ handleOnClick }>View My Maintenance List</button>
-      </p>
+      </div>
       <p>Estimated Maintenance Costs: ${ estimatedCosts } </p>
       <p>Completed Maintenance Total: ${ completedCosts }</p>
 

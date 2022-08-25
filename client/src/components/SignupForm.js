@@ -40,8 +40,8 @@ export const SignupForm = () => {
   }
 
   return (
-    <div>
-      <form className="sign-up-container" onSubmit={ handleSubmit }>
+    <div className="content-container">
+      <form className="form-container" onSubmit={ handleSubmit }>
       <h1>Sign Up</h1>
 
         <label>Username</label>

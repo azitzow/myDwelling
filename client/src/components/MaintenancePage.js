@@ -16,7 +16,7 @@ export const MaintenancePage = ( { currentUser, categories }) => {
   }, [propertyId]);
 
   return (
-    <div className='maintenance-page-container'>
+    <div className='content-container'>
       <h1>List of Maintenances</h1>
 
       {categories.map(category => {
