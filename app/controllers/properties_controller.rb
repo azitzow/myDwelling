@@ -2,7 +2,7 @@ class PropertiesController < ApplicationController
   before_action :find_property, except: [:index, :create]
 
   def index
-    render json: Property.where(user_id: current_user.id), status: :ok
+    render json: Property.where(user_id: session[:user_id]), status: :ok
   end
 
   def show
@@ -15,12 +15,12 @@ class PropertiesController < ApplicationController
 
   def create
     property = Property.create!(params_with_current_user_id)
-    property.maintenances = Maintenance.all
+    property.maintenances = Maintenance.where(user_id: nil).or(Maintenance.where(user_id: session[:user_id]))
     render json: property, status: :created
   end
 
   def update
-    if @property.user_id == current_user.id
+    if @property.user_id == session[:user_id]
       @property.update!(property_params)
       render json:@property, status: :ok
     else
@@ -30,7 +30,7 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property.destroy
-    if @property.user_id == current_user.id
+    if @property.user_id == session[:user_id]
       @property.destroy
     else
       render json: { error: 'Unauthorized'}, status: :unauthorized
@@ -50,7 +50,7 @@ class PropertiesController < ApplicationController
   end
 
   def params_with_current_user_id
-    property_params.merge(user_id: current_user.id)
+    property_params.merge(user_id: session[:user_id])
   end
 
   def find_property
