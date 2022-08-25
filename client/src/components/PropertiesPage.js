@@ -2,13 +2,14 @@ import { useState, useEffect } from 'react'
 import { PropertyCard } from './PropertyCard'
 
 export const PropertiesPage = () => {
-  const [ myProperties, setMyProperties ] = useState([])
+  const [ myProperties, setMyProperties ] = useState([]);
 
   useEffect( () => {
     fetch('/properties')
     .then( (res) => res.json())
     .then((data) => setMyProperties(data))
   }, []);
+
 
   const onDelete = (id) => {
     const updatedPropertyList = myProperties.filter((property) => property.id !== id);
@@ -21,7 +22,7 @@ export const PropertiesPage = () => {
 
 
   return (
-    <div>
+    <div className='content-container'>
       <h1>My Dwellings List</h1>
       { property }
     </div>

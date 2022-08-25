@@ -38,11 +38,11 @@ export const PropertyForm = () => {
   }
 
   return (
-    <div>
-      <form className='property-form-container' onSubmit={ handleSubmit }>
+    <div className='content-container'>
+      <form className='form-container' onSubmit={ handleSubmit }>
         <h1>Create a new Dwelling</h1>
 
-        <label>Name</label>
+        <label className='label'>Name</label>
         <input
         type='text'
         required
@@ -51,7 +51,7 @@ export const PropertyForm = () => {
         value={ name }
         ></input>
 
-        <label>Address</label>
+        <label className='label' >Address</label>
         <input
         type='text'
         required
@@ -60,7 +60,7 @@ export const PropertyForm = () => {
         value={ address }
         ></input>
 
-        <label>Image</label>
+        <label className='label'>Image</label>
         <input
         type='text'
         onChange={ handleChange }
@@ -68,7 +68,7 @@ export const PropertyForm = () => {
         value={ image }
         ></input>
 
-        <button type='submit' >Create</button>
+        <button className='cursor-pointer' type='submit' >Create</button>
       </form>
     </div>
   )
