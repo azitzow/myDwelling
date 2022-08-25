@@ -1,3 +1,4 @@
 class MaintenanceSerializer < ActiveModel::Serializer
-  attributes :id, :name, :category_id
+  attributes :id, :name, :completed, :date_completed, :category_id, :estimated_cost
+
 end

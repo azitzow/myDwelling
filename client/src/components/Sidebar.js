@@ -19,7 +19,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
   return (
     <div className="sidebar-container">
       <nav className="nav-bar-menu">
-        <NavLink to="/home"><span><h1 className="logo">{<img src={Logo} alt={Logo} width='75' height='75' />}MyDwelling</h1></span></NavLink>
+        <NavLink to="/"><span><h1 className="logo">{<img src={Logo} alt={Logo} width='75' height='75' />}MyDwelling</h1></span></NavLink>
 
         { currentUser ? <span>{ "WELCOME " + currentUser.username.toUpperCase() }</span> : null}
 

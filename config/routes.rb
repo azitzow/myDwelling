@@ -7,13 +7,17 @@ Rails.application.routes.draw do
 
   # User Routes
   get '/authorized_user', to: 'users#show'
-  post '/signup', to: "users#create"
+  post '/signup', to: 'users#create'
+  get '/user_properties', to: 'users#user_properties'
 
   # Sessions Routes
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#delete'
 
-  # Property
+    # Maintenance Routes
+    patch '/properties/:id/maintenance/:id', to: 'maintenances#update_property_maintenance'
+
+  # Property Routes
   get '/properties/:id/maintenance', to: 'properties#maintenance'
 
   # Routing logic: fallback requests for React Router.

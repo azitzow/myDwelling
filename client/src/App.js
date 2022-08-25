@@ -15,6 +15,7 @@ import "./App.css";
 
 export const App = () => {
   const [ currentUser, setCurrentUser ] = useState(false);
+  const [ myProperties, setMyProperties] = useState([])
   const [ categories, setCategories ] = useState([]);
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export const App = () => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
+          setMyProperties(user.properties)
         });
       } else {
         res.json().then((json) => {
@@ -37,8 +39,8 @@ export const App = () => {
   useEffect (() => {
     fetch('/categories')
     .then( (res) => res.json())
-    .then((category) => {
-      setCategories(category);
+    .then((json) => {
+      setCategories(json);
     })
   }, [])
 
@@ -46,7 +48,7 @@ export const App = () => {
     <div className="App">
       <Sidebar currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
         <Routes>
-          <Route exact path="/home" element={<Home categories={ categories }/>}/>
+          <Route exact path="/" element={<Home categories={ categories }/>}/>
           <Route exact path="/signup" element={ <SignupForm />}/>
           <Route exact path="/login" element={ <LoginForm setCurrentUser={ setCurrentUser }/> }/>
           <Route exact path="/calendar" element={ <Schedule /> } />
@@ -54,7 +56,7 @@ export const App = () => {
           <Route exact path="/myDwellings" element={ <PropertiesPage />} />
           <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
           <Route exact path="/maintenancePage/:propertyId" element={ <MaintenancePage currentUser={ currentUser} categories={categories} />} />
-          <Route exact path="/createMaintenance" element={ <MaintenanceForm categories={ categories } />} />
+          <Route exact path="/createMaintenance" element={ <MaintenanceForm myProperties={ myProperties } categories={ categories } />} />
         </Routes>
     </div>
   );

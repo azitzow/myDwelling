@@ -25,6 +25,10 @@ class UsersController < ApplicationController
     current_user.maintenances
   end
 
+  def user_properties
+      render json: current_user.properties, status: :ok
+  end
+
   private
 
   def user_params
