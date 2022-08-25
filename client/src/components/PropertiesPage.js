@@ -1,15 +1,7 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import { PropertyCard } from './PropertyCard'
 
-export const PropertiesPage = () => {
-  const [ myProperties, setMyProperties ] = useState([])
-
-  useEffect( () => {
-    fetch('/properties')
-    .then( (res) => res.json())
-    .then((data) => setMyProperties(data))
-  }, []);
-
+export const PropertiesPage = ({myProperties, setMyProperties}) => {
   const onDelete = (id) => {
     const updatedPropertyList = myProperties.filter((property) => property.id !== id);
     setMyProperties(updatedPropertyList)

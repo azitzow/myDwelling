@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Schedule } from "./components/Schedule";
 import { LoginForm } from "./components/LoginForm";
-// import { NavBar } from "./components/NavBar";
 import { Sidebar } from "./components/Sidebar";
 import { Home } from "./components/Home";
 import { SignupForm } from "./components/SignupForm";
@@ -15,7 +14,7 @@ import "./App.css";
 
 export const App = () => {
   const [ currentUser, setCurrentUser ] = useState(false);
-  const [ myProperties, setMyProperties] = useState([])
+  const [ myProperties, setMyProperties ] = useState([]);
   const [ categories, setCategories ] = useState([]);
 
   useEffect(() => {
@@ -24,7 +23,6 @@ export const App = () => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
-          setMyProperties(user.properties)
         });
       } else {
         res.json().then((json) => {
@@ -34,6 +32,12 @@ export const App = () => {
         })
       }
     });
+  }, []);
+
+  useEffect( () => {
+    fetch('/properties')
+    .then( (res) => res.json())
+    .then((data) => setMyProperties(data))
   }, []);
 
   useEffect (() => {
@@ -53,7 +57,7 @@ export const App = () => {
           <Route exact path="/login" element={ <LoginForm setCurrentUser={ setCurrentUser }/> }/>
           <Route exact path="/calendar" element={ <Schedule /> } />
           <Route exact path="/createDwelling" element={ <PropertyForm /> } />
-          <Route exact path="/myDwellings" element={ <PropertiesPage />} />
+          <Route exact path="/myDwellings" element={ <PropertiesPage myProperties={ myProperties} setMyProperties={ setMyProperties }/>} />
           <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
           <Route exact path="/maintenancePage/:propertyId" element={ <MaintenancePage currentUser={ currentUser} categories={categories} />} />
           <Route exact path="/createMaintenance" element={ <MaintenanceForm myProperties={ myProperties } categories={ categories } />} />
@@ -61,5 +65,3 @@ export const App = () => {
     </div>
   );
 };
-
-// <NavBar currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
