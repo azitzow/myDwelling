@@ -1,10 +1,9 @@
 class MaintenancesController < ApplicationController
-  before_action :find_maintenance, except: [:index, :create]
+  before_action :find_maintenance, except: [:index, :create, :update_property_maintenance]
   before_action :find_property, only: :create
-  skip_before_action :authorized_user, only: :update_property_maintenance
 
   def index
-    render json: Maintenance.where(user_id: nil).or(Maintenance.where(user_id: current_user.id)), status: :ok
+    render json: Maintenance.where(user_id: nil).or(Maintenance.where(user_id: session[:user_id])), status: :ok
   end
 
   def show
@@ -17,7 +16,7 @@ class MaintenancesController < ApplicationController
 
   def create
     maintenance = Maintenance.create!(params_with_current_user_id)
-    PropertyMaintenance.create!(maintenance_id: maintenance.id, property_id: @property.id)
+    @property.maintenances << maintenance
     render json: maintenance, status: :created
   end
 
@@ -32,9 +31,14 @@ class MaintenancesController < ApplicationController
   end
 
   def update_property_maintenance
-    @maintenance.update!(maintenance_params)
-    @maintenance.autosave_associated_records_for_property_maintenances
-    render json:@maintenance, status: :ok
+    property_maintenance = PropertyMaintenance.find_by(
+      property_id: params[:property_id],
+      maintenance_id: params[:maintenance_id]
+    )
+    property_maintenance.update!(completed: params[:completed])
+    maintenance = Maintenance.find_by(id: params[:maintenance_id])
+
+    render json:maintenance, property_id: params[:property_id], status: :ok
   end
 
   def destroy
@@ -47,19 +51,20 @@ class MaintenancesController < ApplicationController
 
   private
 
-  def find_property
-    @property = Property.find(params[:property_id])
-  end
-
-  def find_maintenance
-    @maintenance = Maintenance.find(params[:id])
-  end
-
   def maintenance_params
-    params.permit(:name, :completed, :category_id, :estimated_cost)
+    params.permit(:name, :category_id, :estimated_cost)
   end
 
   def params_with_current_user_id
     maintenance_params.merge(user_id: session[:user_id])
   end
+
+  def find_property
+    @property = Property.find(params[:property_id])
+  end
+
+  def find_maintenance
+    @property_maintenance = PropertyMaintenance.find(params[:id])
+  end
+
 end

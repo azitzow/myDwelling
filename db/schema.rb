@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 2022_08_18_183242) do
 
   create_table "maintenances", force: :cascade do |t|
     t.text "name"
-    t.boolean "completed"
-    t.date "date_completed"
     t.integer "user_id"
     t.integer "category_id"
     t.integer "estimated_cost"
@@ -43,6 +41,8 @@ ActiveRecord::Schema.define(version: 2022_08_18_183242) do
   end
 
   create_table "property_maintenances", force: :cascade do |t|
+    t.boolean "completed", default: false
+    t.date "date_completed"
     t.bigint "maintenance_id", null: false
     t.bigint "property_id", null: false
     t.datetime "created_at", precision: 6, null: false

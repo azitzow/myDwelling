@@ -40,7 +40,7 @@ class PropertiesController < ApplicationController
   def maintenance
     property_id = params[:id]
     property = Property.find(property_id)
-    render json: property.maintenances, status: :ok
+    render json: property.maintenances, property_id: property_id, status: :ok
   end
 
   private

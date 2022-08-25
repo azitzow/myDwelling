@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#delete'
 
-    # Maintenance Routes
-    patch '/properties/:id/maintenance/:id', to: 'maintenances#update_property_maintenance'
+  # Maintenance Routes
+  patch '/properties/:property_id/maintenance/:maintenance_id', to: 'maintenances#update_property_maintenance'
 
   # Property Routes
   get '/properties/:id/maintenance', to: 'properties#maintenance'
