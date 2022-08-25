@@ -7,22 +7,22 @@ class MaintenancesController < ApplicationController
   end
 
   def show
-    if @maintenance.user_id == current_user.id
+    if @maintenance.user_id == session[:user_id]
       render json: @maintenance, status: :ok
     else
-      render json: {error: 'Unauthorized'}, status: :unauthorized
+      render json: { errors: 'Unauthorized'}, status: :unauthorized
     end
   end
 
   def create
     maintenance = Maintenance.create!(params_with_current_user_id)
     @property.maintenances << maintenance
-    render json: maintenance, status: :created
+    render json: maintenance, serializer: MaintenancesWithoutPropertyIdSerializer, status: :created
   end
 
   def update
     # updates user maintenance only
-    if @maintenance.user_id == current_user.id
+    if @maintenance.user_id == session[:user_id]
       @maintenance.update!(maintenance_params)
       render json: @maintenance, status: :ok
     else
@@ -42,7 +42,7 @@ class MaintenancesController < ApplicationController
   end
 
   def destroy
-    if @maintenance.user_id == current_user.id
+    if @maintenance.user_id == session[:user_id]
       @maintenance.destroy
     else
       render json: {error: 'Unauthorized'}, status: :unauthorized
@@ -64,7 +64,7 @@ class MaintenancesController < ApplicationController
   end
 
   def find_maintenance
-    @property_maintenance = PropertyMaintenance.find(params[:id])
+    @maintenance = Maintenance.find(params[:id])
   end
 
 end
