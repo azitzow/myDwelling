@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Schedule } from "./components/Schedule";
 import { LoginForm } from "./components/LoginForm";
 import { Sidebar } from "./components/Sidebar";
-import { Home, Page } from "./components/Home";
+import { Home } from "./components/Home";
 import { SignupForm } from "./components/SignupForm";
 import { PropertiesPage } from "./components/PropertiesPage";
 import { PropertyForm } from "./components/PropertyForm";
@@ -38,7 +38,7 @@ export const App = () => {
     .then( (res) => res.json())
     .then((json) => {
       setCategories(json);
-    })
+    });
   }, [])
 
   return (
@@ -54,7 +54,6 @@ export const App = () => {
           <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
           <Route exact path="/maintenancePage/:propertyId" element={ <MaintenancePage currentUser={ currentUser} categories={categories} />} />
           <Route exact path="/createMaintenance" element={ <MaintenanceForm categories={ categories } />} />
-
         </Routes>
     </div>
   );
