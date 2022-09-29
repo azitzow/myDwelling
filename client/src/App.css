@@ -63,6 +63,7 @@
 /* .link :visited{
   color: #571d10;
 } */
+
 /* h2 {
   font-weight: 400;
 } */
@@ -74,8 +75,6 @@
 /* button {
   background-color: #D4A59A;
 } */
-
-
 
 .maintenance-form-container {
   justify-content: center;
@@ -178,6 +177,7 @@ li {
   justify-content: space-around;
 }
 
+
 /*=========== Category Styles ===========*/
 
 .category-container {
@@ -197,3 +197,4 @@ li {
   width: 350px;
   height: 350px;
 }
+

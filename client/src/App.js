@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Schedule } from "./components/Schedule";
 import { LoginForm } from "./components/LoginForm";
 import { Sidebar } from "./components/Sidebar";
-import { Home } from "./components/Home";
+import { Home, Page } from "./components/Home";
 import { SignupForm } from "./components/SignupForm";
 import { PropertiesPage } from "./components/PropertiesPage";
 import { PropertyForm } from "./components/PropertyForm";

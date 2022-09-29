@@ -23,7 +23,6 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
             isActive
               ? {
                   color: "#5085A5",
-                  background: "#7600dc",
                 }
               : { color: "#545e6f", background: "#f0f0f0" }
           }
@@ -46,7 +45,6 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -63,7 +61,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
+               
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -81,7 +79,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
+              
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -92,7 +90,6 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
             </p>
           </NavLink>
         )}
-
         {currentUser ? (
           <NavLink
             style={({ isActive }) =>
@@ -126,9 +123,10 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
             <p>
               <span>My Dwelling List</span>
             </p>
+
           </NavLink>
         ) : null}
-
+        
         {currentUser ? (
           <NavLink
             style={({ isActive }) =>
@@ -144,6 +142,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
             <p>
               <span>Schedule</span>
             </p>
+
           </NavLink>
         ) : null}
 
