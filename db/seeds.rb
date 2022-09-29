@@ -1,5 +1,27 @@
 puts '🌱  Seeding categories'
 
+inspections = Category.create(title: 'Inspections', image: 'https://optimalhomeinspections.com/wordpress/wp-content/uploads/2022/02/home-inspection-areas.png');
+
+move_in = Category.create(title: 'Move-In', image: ' https://cdn1.vectorstock.com/i/1000x1000/69/05/happy-moving-house-family-cartoon-vector-26326905.jpg')
+
+monthly_maintenance = Category.create(title: 'Monthly Maintenance Checklist', image: 'https://img.freepik.com/premium-vector/business-people-planning-illustration-tiny-businessman-manager-character-team-standing-big-list-planner-checklist-teamwork-time-management-concept_213110-622.jpg?w=2000')
+
+fall_exterior = Category.create(title: 'Fall Exterior Home Maintenance', image: 'https://farmersinsurance.scene7.com/is/image/farmers/PP_FallHomeMaintenance_interior-1_600x486');
+
+fall_interior = Category.create(title: 'Fall Interior Home Maintenance', image: 'https://farmersinsurance.scene7.com/is/image/farmers/PP_FallHomeMaintenance_interior-4_600x366');
+
+winter_exterior = Category.create(title: 'Winter Exterior Maintenance Checklist', image: 'https://www.greateriowacu.org/webres/Image/2018_Winterize%20Home_Infographic.jpg');
+
+winter_interior = Category.create(title: 'Winter Interior Maintenance Checklist', image: 'https://simplicitywebstorage.s3.us-west-2.amazonaws.com/wp-content/uploads/2019/12/17122105/SIM-Winter-Inforgraphic.jpg');
+
+spring_exterior = Category.create(title: 'Spring Exterior Maintenance Checklist', image: 'https://s7d2.scene7.com/is/image/farmers/PP_SIP-SpringHomeMaintenance_1-Exterior_600x410');
+
+spring_interior = Category.create(title: 'Spring Interior Maintenance Checklist', image: 'https://s7d2.scene7.com/is/image/farmers/PP_SIP-SpringHomeMaintenance_2-Interior_600x312');
+
+summer_exterior = Category.create(title: 'Summer Exterior Maintenance Checklist', image: 'https://i.ytimg.com/vi/NyErSHdNm88/maxresdefault.jpg');
+
+summer_interior = Category.create(title: 'Summer Interior Maintenance Checklist', image: 'https://managecasa.com/wp-content/uploads/2015/06/abode7maintenancetips1000.png');
+
 inspections = Category.create(title: 'Inspections')
 move_in = Category.create(title: 'Move-In')
 monthly_maintenance = Category.create(title: 'Monthly Maintenance Checklist')

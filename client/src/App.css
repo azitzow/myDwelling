@@ -1,36 +1,13 @@
 .App {
-  /* text-align: center; */
   display: flex;
   color: #f9f7f7;
 }
+
 .body {
   background-color: #557A95;
 }
 
-.maintenance-form-container {
-  /* display: inline-grid; */
-  padding: 10px;
-}
-
-.navbar-container {
-  /* display: flex; */
-  text-align: right;
-}
-
-/* .link :visited{
-  color: #571d10;
-} */
-h2 {
-  font-weight: 400;
-}
-
-  button {
-  background-color: #4285F4;
-}
-
-/* button {
-  background-color: #D4A59A;
-} */
+/*=========== Side Bar ===========*/
 
 .sidebar-container {
   display: flex;
@@ -43,6 +20,61 @@ h2 {
   color: #BC4639;
   background-color: white;
 }
+
+.nav-bar-menu {
+  margin-left: 0px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.nav-bar-menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.nav-bar-menu p {
+  padding: 4px;
+}
+
+.nav-bar-menu span {
+  margin-left: 10px;
+}
+
+.nav-bar-menu  p:hover{
+  background-color: rgb(212, 113, 113);
+  border-radius: 10px;
+}
+
+/*=========== Maintenance Content ===========*/
+
+.maintenance-form-container {
+  /* display: inline-grid; */
+  padding: 10px;
+}
+
+/* .navbar-container {
+  display: flex;
+  text-align: right;
+} */
+
+/* .link :visited{
+  color: #571d10;
+} */
+
+/* h2 {
+  font-weight: 400;
+} */
+
+  button {
+  background-color: #4285F4;
+}
+
+/* button {
+  background-color: #D4A59A;
+} */
 
 .maintenance-form-container {
   justify-content: center;
@@ -113,6 +145,7 @@ input[type='checkbox'] {
   padding: 20px;
 }
 
+/*=========== Property Page ===========*/
 
 .property-page-container {
   /* align-self: stretch; */
@@ -142,5 +175,26 @@ li {
 .button-row {
   display: flex;
   justify-content: space-around;
+}
+
+
+/*=========== Category Styles ===========*/
+
+.category-container {
+  display: flex;
+  flex-direction: initial;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.category-card {
+  padding: 20px;
+}
+
+.category-card img {
+  width: 350px;
+  height: 350px;
 }
 

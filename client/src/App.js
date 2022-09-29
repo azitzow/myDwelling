@@ -38,7 +38,7 @@ export const App = () => {
     .then( (res) => res.json())
     .then((json) => {
       setCategories(json);
-    })
+    });
   }, [])
 
   return (
@@ -54,7 +54,6 @@ export const App = () => {
           <Route exact path="/propertyPage/:id" element={ <PropertyPage />} />
           <Route exact path="/maintenancePage/:propertyId" element={ <MaintenancePage currentUser={ currentUser} categories={categories} />} />
           <Route exact path="/createMaintenance" element={ <MaintenanceForm categories={ categories } />} />
-
         </Routes>
     </div>
   );

@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2022_08_18_183242) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -60,7 +61,9 @@ ActiveRecord::Schema.define(version: 2022_08_18_183242) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "albums", "artists"
   add_foreign_key "properties", "users"
   add_foreign_key "property_maintenances", "maintenances"
   add_foreign_key "property_maintenances", "properties"
+
 end

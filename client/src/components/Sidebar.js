@@ -1,17 +1,16 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from '../images/brick logo.webp';
-
+import Logo from "../images/brick logo.webp";
 
 export const Sidebar = ({ currentUser, setCurrentUser }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     fetch("/logout", {
-      method: "DELETE"
+      method: "DELETE",
     }).then((res) => {
       if (res.ok) {
         setCurrentUser(false);
-        navigate('/');
+        navigate("/");
       }
     });
   };
@@ -19,114 +18,151 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
   return (
     <div className="sidebar-container">
       <nav className="nav-bar-menu">
-        <NavLink  style={({ isActive }) =>
-        isActive
-          ? {
-              color: '#5085A5',
-              background: '#7600dc',
+        <NavLink
+          style={({ isActive }) =>
+            isActive
+              ? {
+                  color: "#5085A5",
+                }
+              : { color: "#545e6f", background: "#f0f0f0" }
+          }
+          to="/"
+        >
+          <span>
+            <h1 className="logo">
+              {<img src={Logo} alt={Logo} width="75" height="75" />} My Dwelling
+            </h1>
+          </span>
+        </NavLink>
+
+        {currentUser ? (
+          <span>{"WELCOME " + currentUser.username.toUpperCase()}</span>
+        ) : null}
+
+        {currentUser ? (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
             }
-          : { color: '#545e6f', background: '#f0f0f0' }
-      } to="/"><span><h1 className="logo">{<img src={Logo} alt={Logo} width='75' height='75' />}MyDwelling</h1></span></NavLink>
-
-        { currentUser ? <span>{ "WELCOME " + currentUser.username.toUpperCase() }</span> : null}
-
-        { currentUser ?
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to="/logout" onClick={ handleLogout }>
-          <p><span>Logout</span></p>
+            to="/logout"
+            onClick={handleLogout}
+          >
+            <p>
+              <span>Logout</span>
+            </p>
           </NavLink>
-          :
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to="/login">
-          <p><span>Login</span></p>
+        ) : (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+               
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
+            }
+            to="/login"
+          >
+            <p>
+              <span>Login</span>
+            </p>
           </NavLink>
-        }
+        )}
 
-        { currentUser ? null :
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to='/signup'>
-            <p><span>Signup</span></p>
+        {currentUser ? null : (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+              
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
+            }
+            to="/signup"
+          >
+            <p>
+              <span>Signup</span>
+            </p>
           </NavLink>
-        }
-
-        { currentUser ?
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to='/createDwelling'>
-            <p><span>Create A Dwelling</span></p>
+        )}
+        {currentUser ? (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+                    background: "#7600dc",
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
+            }
+            to="/createDwelling"
+          >
+            <p>
+              <span>Create A Dwelling</span>
+            </p>
           </NavLink>
-          :
-          null
-        }
+        ) : null}
 
-        { currentUser ?
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to='/myDwellings'>
-            <p><span>My Dwelling List</span></p>
+        {currentUser ? (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+                    background: "#7600dc",
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
+            }
+            to="/myDwellings"
+          >
+            <p>
+              <span>My Dwelling List</span>
+            </p>
+
           </NavLink>
-          :
-          null
-        }
+        ) : null}
+        
+        {currentUser ? (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+                    background: "#7600dc",
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
+            }
+            to="/calendar"
+          >
+            <p>
+              <span>Schedule</span>
+            </p>
 
-        { currentUser ?
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to='/calendar'>
-            <p><span>Schedule</span></p>
           </NavLink>
-          :
-          null
-        }
+        ) : null}
 
-        { currentUser ?
-          <NavLink style={({ isActive }) =>
-          isActive
-            ? {
-                color: '#5085A5',
-                background: '#7600dc',
-              }
-            : { color: '#545e6f', background: '#f0f0f0' }
-        } to='/createMaintenance'>
-            <p><span>Create a Maintenance</span></p>
+        {currentUser ? (
+          <NavLink
+            style={({ isActive }) =>
+              isActive
+                ? {
+                    color: "#5085A5",
+                    background: "#7600dc",
+                  }
+                : { color: "#545e6f", background: "#f0f0f0" }
+            }
+            to="/createMaintenance"
+          >
+            <p>
+              <span>Create a Maintenance</span>
+            </p>
           </NavLink>
-          :
-          null
-        }
-
+        ) : null}
       </nav>
     </div>
   );
