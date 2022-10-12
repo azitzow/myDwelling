@@ -22,18 +22,6 @@ summer_exterior = Category.create(title: 'Summer Exterior Maintenance Checklist'
 
 summer_interior = Category.create(title: 'Summer Interior Maintenance Checklist', image: 'https://managecasa.com/wp-content/uploads/2015/06/abode7maintenancetips1000.png');
 
-inspections = Category.create(title: 'Inspections')
-move_in = Category.create(title: 'Move-In')
-monthly_maintenance = Category.create(title: 'Monthly Maintenance Checklist')
-fall_exterior = Category.create(title: 'Fall Exterior Home Maintenance')
-fall_interior = Category.create(title: 'Fall Interior Home Maintenance')
-winter_exterior = Category.create(title: 'Winter Exterior Maintenance Checklist')
-winter_interior = Category.create(title: 'Winter Interior Maintenance Checklist')
-spring_exterior = Category.create(title: 'Spring Exterior Maintenance Checklist')
-spring_interior = Category.create(title: 'Spring Interior Maintenance Checklist')
-summer_exterior = Category.create(title: 'Summer Exterior Maintenance Checklist')
-summer_interior = Category.create(title: 'Summer Interior Maintenance Checklist')
-
 puts '🌱  Seeding maintenances'
 
 clean = Maintenance.create(name: 'Deep clean your home', category_id: move_in.id, user_id: nil, estimated_cost: 350)

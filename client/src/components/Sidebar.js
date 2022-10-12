@@ -24,7 +24,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               ? {
                   color: "#5085A5",
                 }
-              : { color: "#545e6f", background: "#f0f0f0" }
+              : { color: "#545e6f" }
           }
           to="/"
         >
@@ -61,7 +61,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-               
+
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -79,7 +79,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-              
+
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -96,7 +96,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
+
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -114,7 +114,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
+
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -126,14 +126,14 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
 
           </NavLink>
         ) : null}
-        
+
         {currentUser ? (
           <NavLink
             style={({ isActive }) =>
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
+
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }
@@ -152,7 +152,7 @@ export const Sidebar = ({ currentUser, setCurrentUser }) => {
               isActive
                 ? {
                     color: "#5085A5",
-                    background: "#7600dc",
+
                   }
                 : { color: "#545e6f", background: "#f0f0f0" }
             }

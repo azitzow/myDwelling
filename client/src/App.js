@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Schedule } from "./components/Schedule";
 import { LoginForm } from "./components/LoginForm";
 import { Sidebar } from "./components/Sidebar";
-import { Home, Page } from "./components/Home";
+import { Home } from "./components/Home";
 import { SignupForm } from "./components/SignupForm";
 import { PropertiesPage } from "./components/PropertiesPage";
 import { PropertyForm } from "./components/PropertyForm";
@@ -45,7 +45,7 @@ export const App = () => {
     <div className="App">
       <Sidebar currentUser={ currentUser } setCurrentUser={ setCurrentUser } />
       <Routes>
-          <Route exact path="/" element={<Home categories={ categories }/>}/>
+          <Route exact path="/" element={<Home categories={ categories } currentUser={ currentUser }/>}/>
           <Route exact path="/signup" element={ <SignupForm />}/>
           <Route exact path="/login" element={ <LoginForm setCurrentUser={ setCurrentUser }/> }/>
           <Route exact path="/calendar" element={ <Schedule /> } />

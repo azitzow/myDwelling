@@ -1,7 +1,7 @@
 body {
-  background-color: #D4A59A;
   margin: 0;
-  padding: 20px 40px;
+  /* padding: 20px 40px; */
+  border-radius: 25px;
   font-family:'Yeseva One', cursive, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

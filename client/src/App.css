@@ -1,13 +1,14 @@
 .App {
   display: flex;
-  color: #f9f7f7;
+  /* border-radius: 25px; */
+  width: 100%;
+  background-color: #D4A59A;
+  /* color: #f9f7f7; */
+  /* color: #BC4639; */
+
 }
 
-.body {
-  background-color: #557A95;
-}
-
-/*=========== Side Bar ===========*/
+/*=========== Side Bar Styling===========*/
 
 .sidebar-container {
   display: flex;
@@ -19,6 +20,11 @@
   min-width: 200px;
   color: #BC4639;
   background-color: white;
+}
+
+.logo:hover {
+  color: #BC4639;
+  cursor: pointer;
 }
 
 .nav-bar-menu {
@@ -44,37 +50,21 @@
 }
 
 .nav-bar-menu  p:hover{
-  background-color: rgb(212, 113, 113);
+  background-color: rgb(193, 122, 122);
+  color:white;
   border-radius: 10px;
 }
 
 /*=========== Maintenance Content ===========*/
 
 .maintenance-form-container {
-  /* display: inline-grid; */
   padding: 10px;
 }
 
-/* .navbar-container {
-  display: flex;
-  text-align: right;
-} */
-
-/* .link :visited{
-  color: #571d10;
-} */
-
-/* h2 {
-  font-weight: 400;
-} */
-
-  button {
-  background-color: #4285F4;
-}
-
-/* button {
+button {
+  border-radius: 15px;
   background-color: #D4A59A;
-} */
+}
 
 .maintenance-form-container {
   justify-content: center;
@@ -111,10 +101,10 @@
   box-sizing: border-box;
 }
 
-
 button[type=submit]{
   width: 100%;
-  background-color: #4285F4;
+  border-radius: 15px;
+  background-color: #571d10;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -148,8 +138,6 @@ input[type='checkbox'] {
 /*=========== Property Page ===========*/
 
 .property-page-container {
-  /* align-self: stretch; */
-
   padding-left: 20px;
 }
 
@@ -177,8 +165,7 @@ li {
   justify-content: space-around;
 }
 
-
-/*=========== Category Styles ===========*/
+/*=========== Category Container and Card Styles ===========*/
 
 .category-container {
   display: flex;
@@ -193,8 +180,27 @@ li {
   padding: 20px;
 }
 
+.category-card:hover {
+  border-radius: 25px;
+  background-color: #D4A59A;
+  color: white;
+  cursor: pointer;
+
+}
+
 .category-card img {
-  width: 350px;
+  border-radius: 15px;
+  width: 395px;
   height: 350px;
+}
+
+.category-card p {
+  font-size: 1.25em;
+  font-weight: 500;
+  text-align: center;
+}
+
+.view:hover {
+  cursor: pointer;
 }
 
