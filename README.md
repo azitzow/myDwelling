@@ -1,15 +1,24 @@
 # My Dwelling
+## Demo Video
+
+
+https://user-images.githubusercontent.com/82430080/202046138-180760ab-a5e7-4d2e-8836-5b00ff36e45c.mov
+
 
 ## Description
 This is a currently evolving app, changes and upgrades to come!
-<p> This SPA is meant to help users track their property maintenance,due dates and estimated costs. Their are many things to consider as a user when tracking the estimated cost: 
+<p> My Dwelling is a SPA(Single-page application) that allows you to track your property's preventative maintenance their due dates and costs. </p> 
+
+## App Features
 <ul>
-  <li>The estimated costs for this appt are determined based on average prices in the Roseville, California area. (This is a strech goal)
+  <li>
+    Programmed React-big-calendar to allow users to schedule and track property maintenance projects and recurring activities.
   </li>
-  <li>Currently a user is not able to update the cost of the maintenances list that is automatically provided to each property
- </li>
- <li>
-  User can create their own maintenance and add the cost related to that maintenance.
- </li>
+  <li>
+    Developed JavaScript/React front-end and Rails/Active Record/Postgres back-end to seamlessly integrate app components.
+  </li>
+  <li>
+     Implemented Design Thinking methodology to develop UI and UX design strategy that provides a seamless user experience while      navigating the application.
+  </li>
 </ul>
-</p> 
+
