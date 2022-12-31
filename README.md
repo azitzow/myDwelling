@@ -1,15 +1,13 @@
 # My Dwelling
 ## Video Demo: 
 
-
 https://user-images.githubusercontent.com/82430080/202046138-180760ab-a5e7-4d2e-8836-5b00ff36e45c.mov
-
 
 ## Description:
 <p> My Dwelling is a SPA(Single-page application) that allows you to track your property's preventative maintenance their due dates and costs. </p> 
 
 <p> 
-  A little bit about the process on how I came up with this idea. I wanted to come up with something that can help me solve a problem for me and something that can be helpful to others. I am not sure how many people actually know the amount of maintenance a home requires. My husband and I sure didn't. As a newly married couple we made one of our biggest financial decisions of our lives by buying our first home together.
+  A little bit about the process on how I came up with this idea. I wanted to come up with something that can help me solve a problem for me and something that can be helpful to others. I am not sure how many people actually know the amount of maintenance a home requires. My husband and I sure didn't. As a newly married couple we made one of our biggest financial decisions of our lives by buying our first home together. 
 </p>
 
 <p> 
@@ -22,10 +20,28 @@ https://user-images.githubusercontent.com/82430080/202046138-180760ab-a5e7-4d2e-
   <li>User can create an account</li>
   <li>User can login and logout of their account</li>
   <li>User can create a property and view recommended maintenance to their property so that they can track them</li>
-  <li>User can create custom maintenance for their property and edit or delete it</li>
+  <li>User can create custom maintenance for their property and mark it as completed</li>
   <li>Have a schedule/calendar where users can keep track of the maintenance due dates. They will be able to add their next due date in the calendar as a reminder</li>
   <li>Save and delete an inspection on the property and track any or all expenses related to the property</li>
   <li>User will be able to track all the listed expenses cost and of each of their maintenance</li>
+</ul>
+
+### Additional Research and Development Phase User Stories or To Do List
+#### TO DO:
+<ul>
+  <li>- [x] Deploy to Heroku </li>
+  <li>- [x] Implement authentication/authorization, including password protection. A user should be able to log in to the site with a secure password and stay logged in via user ID in the session hash.</li>
+  <li>- [x] Use a Rails API backend with a React frontend.</li>
+  <li>- [x] Have at least three different client-side routes using React Router. Be sure to include a nav bar or other UI element that allows users to navigate between routes.</li>
+  <li>- [x] Use a Rails API backend with a React frontend.</li>
+    
+  <li> [x] Have at least three models on the backend, that include: </li>
+    <ul>
+      <li>- [x] at least one many-to-many relationship </li>
+      <li>- [x] at least one many through relationship </li>
+      <li>- [x] full CRUD actions for at least one resource </li>
+      <li>- [x] at least one one-to-many relationship </li>
+    </ul>
 </ul>
 
 #### Models and Associations:
